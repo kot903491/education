@@ -8,19 +8,22 @@
 $title = "Первое ДЗ";
 $h1="Первое задание";
 $year = date(Y);
+?>
 
-echo "
+
+
+
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml'>
 <head>
 	<meta http-equiv='content-type' content='text/html;charset=utf-8' />
 	<meta name='author' content='Luka Cvrk (www.solucija.com)' />
 	<link rel='stylesheet' href='css/main.css' type='text/css' />
-	<title>$title</title>
+	<title><?php echo $title;?></title>
 </head>
 <body>
 	<div id='content'>
-		<h1>$h1</h1>
+		<h1><?php echo $h1;?></h1>
 
 		<ul id='menu'>
 			<li><a href='#'>home</a></li>
@@ -35,9 +38,9 @@ echo "
 
 			</div>
 			<div class='body'>
-    \$a = 5;<br>
-    \$b = '05';<br>
-    var_dump(\$a == \$b);         // Почему true? <b>Потому, что \$b присвоился тип integer</b><br> 
+    $a = 5;<br>
+    $b = '05';<br>
+    var_dump($a == $b);         // Почему true? <b>Потому, что \$b присвоился тип integer</b><br> 
     var_dump((int)'012345');     // Почему 12345? <b>Потому, что тип integer - числовой, а число не может начинаться с 0</b><br>
     var_dump((float)123.0 === (int)123.0); // Почему false? <b>Разные типы данных</b><br>
     var_dump((int)0 === (int)'hello, world'); // Почему true? <b>В числовом типе нельзя записать слова, любой символ будет равен 0</b> <br>
@@ -46,23 +49,24 @@ echo "
 		</div>
 
 		<div class='col'>
-			<h3><a href='#'>Меняем значения переменных местами</a></h3>";
+			<h3><a href='#'>Меняем значения переменных местами</a></h3>
+<?php			
 $a = 4;
 $b = 15;
-echo "
-\$a = $a;<br>
-\$b = $b;<br>
+?>
+$a = <?php echo $a;?>;<br>
+$b = <?php echo $b;?>;<br>
 Вычисляем <br>";
-
+<?php
 $a +=$b;
 $b = $a-$b;
 $a-=$b;
-echo "
-\$a +=\$b;<br>
-\$b = \$a-\$b;<br>
-\$a-=\$b;<br>
-\$a = $a;<br>
-\$b = $b;
+?>
+$a +=$b;<br>
+$b = $a-$b;<br>
+$a-=$b;<br>
+$a = <?php echo $a;?><br>
+$b = <?php echo $b;?>
 			<p>&not; <a href='#'>read more</a></p>
 		</div>
 		<div class='col'>
@@ -81,4 +85,4 @@ echo "
 		</div>
 	</div>
 </body>
-</html>";
+</html>
