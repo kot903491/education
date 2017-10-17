@@ -5,9 +5,23 @@
  * Date: 09.10.2017
  * Time: 23:24
  */
-$title = "Первое ДЗ";
+$title = "Выполнение ДЗ";
 $h1="Первое задание";
 $year = date(Y);
+$podmenu = explode(",","Подменю 1, Подменю 2, Подменю 3");
+for($i=1;$i<=3;$i++){
+    $str = "Меню $i";
+    $menu[$str] = $podmenu;
+}
+$menu_str = "<ul id = 'menu'>";
+foreach ($menu as $key=>$value){
+    $menu_str .="<li><a href='#'>$key</a><ul>";
+    foreach($value as $key=>$value){
+        $menu_str .="<li><a href='#'>$value</a></li>";
+    }
+    $menu_str .="</ul></li>";
+}
+
 ?>
 
 
@@ -19,17 +33,13 @@ $year = date(Y);
 	<meta http-equiv='content-type' content='text/html;charset=utf-8' />
 	<meta name='author' content='Luka Cvrk (www.solucija.com)' />
 	<link rel='stylesheet' href='css/main.css' type='text/css' />
-	<title><?php echo $title;?></title>
+	<title><?=$title;?></title>
 </head>
 <body>
 	<div id='content'>
-		<h1><?php echo $h1;?></h1>
+		<h1><?=$h1;?></h1>
 
-		<ul id='menu'>
-			<li><a href='#'>home</a></li>
-			<li><a href='#'>archive</a></li>
-			<li><a href='#'>contact</a></li>
-		</ul>
+		<?=$menu_str;?>
 
 		<div class='post'>
 			<div class='details'>
@@ -54,8 +64,8 @@ $year = date(Y);
 $a = 4;
 $b = 15;
 ?>
-$a = <?php echo $a;?>;<br>
-$b = <?php echo $b;?>;<br>
+$a = <?=$a;?>;<br>
+$b = <?=$b;?>;<br>
 Вычисляем <br>";
 <?php
 $a +=$b;
@@ -65,23 +75,23 @@ $a-=$b;
 $a +=$b;<br>
 $b = $a-$b;<br>
 $a-=$b;<br>
-$a = <?php echo $a;?><br>
-$b = <?php echo $b;?>
+$a = <?=$a;?><br>
+$b = <?=$b;?>
 			<p>&not; <a href='#'>read more</a></p>
 		</div>
 		<div class='col'>
-			<h3><a href='#'>Maecenas iaculis leo</a></h3>
-			<p>Quisque consectetur odio ut sem semper commodo. Maecenas iaculis leo a ligula euismod condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim risus, rhoncus sit amet ultricies vel, aliquet ut dolor. Duis iaculis urna vel massa ultricies suscipit. Phasellus diam sapien, fermentum a eleifend non, luctus non augue. Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat tortor posuere dignissim sit amet at.</p>
-			<p>&not; <a href='#'>read more</a></p>
+			<h3><a href='/lesson2.php'>Второе ДЗ</a></h3>
+			<p>Доступно по ссылке</p>
+			<p>&not; <a href='/lesson2.php'>read more</a></p>
 		</div>
 		<div class='col last'>
-			<h3><a href='#'>Quisque consectetur odio</a></h3>
-			<p>Quisque consectetur odio ut sem semper commodo. Maecenas iaculis leo a ligula euismod condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim risus, rhoncus sit amet ultricies vel, aliquet ut dolor. Duis iaculis urna vel massa ultricies suscipit. Phasellus diam sapien, fermentum a eleifend non, luctus non augue. Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat tortor posuere dignissim sit amet at.</p>
-			<p>&not; <a href='#'>read more</a></p>
+			<h3><a href='/lesson3.php'>Третье ДЗ</a></h3>
+			<p>Доступно по ссылке.</p>
+			<p>&not; <a href='/lesson3.php'>read more</a></p>
 		</div>
 
 		<div id='footer'>
-			<p>Copyright &copy; <em>minimalistica</em> &middot; Design: Luka Cvrk, <a href='http://www.solucija.com/' title='Free CSS Templates'>Solucija</a> $year</p>
+			<p>Copyright &copy; <em>minimalistica</em> &middot; Design: Luka Cvrk, <a href='http://www.solucija.com/' title='Free CSS Templates'>Solucija</a><?=$year;?></p>
 		</div>
 	</div>
 </body>
