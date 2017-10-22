@@ -15,7 +15,9 @@ if (!empty($_POST[load])) {
         $msg="";
         foreach ($f as $key =>$tmp_name) {
             $file = $path . $_FILES[images][name][$key];
+            $file_th = $path . "thumb/" . $_FILES[images][name][$key];
             if (copy($tmp_name, $file)) {
+                img_resize($file,$file_th);
                 $msg .= $file." Файл загружен<br>";
             }
 
