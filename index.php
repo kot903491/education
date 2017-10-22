@@ -89,6 +89,11 @@ $b = <?=$b;?>
 			<p>Доступно по ссылке.</p>
 			<p>&not; <a href='/lesson3.php'>read more</a></p>
 		</div>
+        <div class='col'>
+            <h3><a href='/lesson4.php'>Четвертое ДЗ</a></h3>
+            <p>Доступно по ссылке</p>
+            <p><a href='/lesson4.php'>read more</a></p>
+        </div>
 
 		<div id='footer'>
 			<p>Copyright &copy; <em>minimalistica</em> &middot; Design: Luka Cvrk, <a href='http://www.solucija.com/' title='Free CSS Templates'>Solucija</a><?=$year;?></p>

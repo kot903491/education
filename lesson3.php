@@ -98,10 +98,6 @@ foreach ($arr_city as $key=>$value){
 }
 $str9 = space_replace(rus2translit("Объединить две ранее написанные функции в одну, которая получает строку на русском языке, производит транслитерацию и замену пробелов на подчеркивания (аналогичная задача решается при конструировании url-адресов на основе названия статьи в блогах)"));
 ?>
-
-
-
-
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
 <html>
 <head>
