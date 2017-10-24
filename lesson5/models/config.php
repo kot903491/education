@@ -6,9 +6,11 @@
  * Time: 19:36
  */
 define("gallery","shop.gallery");
-define("ins","INSERT INTO ".gallery."(url,th_url,size,rating) VALUES(");
+define("ins","INSERT INTO ".gallery."(name,url,th_url,size,rating) VALUES(");
+define("upd1","UPDATE ".gallery." SET rating = ");
+define("upd2"," WHERE id = ");
 $link = mysqli_connect('localhost','root','','shop');
-$sql_img=mysqli_query($link,"SELECT * from " . gallery);
+$sql_img=mysqli_query($link,"SELECT * from " . gallery . " ORDER by rating DESC");
 
 function img_resize($src, $dest, $rgb = 0xFFFFFF, $quality = 100) {
     if (!file_exists($src)) {

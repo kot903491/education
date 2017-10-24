@@ -18,12 +18,12 @@ if (!empty($_POST[load])) {
             $file = $path . $fname;
             $file_th = $path . "thumb/" . $fname;
             $size=$_FILES[images][size][$key];
-            if ($size > 2000000) {
-                $msg .= "<p>" . $name . " Размер файла больше 2Мб</p>";
+            if ($size > 1000000) {
+                $msg .= "<p>" . $name . " Размер файла больше 1Мб</p>";
             } else {
                 if (copy($tmp_name, $file)) {
                     img_resize($file, $file_th);
-                    $res=mysqli_query($link,ins."'$file','$file_th','$size',0)");
+                    $res=mysqli_query($link,ins."'$fname','$file','$file_th','$size',0)");
                     $msg .= "<p>" . $fname . " Файл загружен</p>";
 
                 }
