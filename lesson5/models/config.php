@@ -16,6 +16,7 @@ function img_resize($src, $dest, $rgb = 0xFFFFFF, $quality = 100) {
     if (!file_exists($src)) {
         return false;
     }
+
     $size = getimagesize($src);
     if ($size === false) {
         return false;
