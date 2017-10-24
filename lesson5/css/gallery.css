@@ -1,0 +1,38 @@
+body{
+    height: 100%;
+}
+
+#gallery{
+    width:95%;
+
+    min-height: 400px;
+    height: auto;
+    margin: auto;
+}
+.img:after{
+    clear: both;
+}
+.img{
+    float: left;
+    width: 210px;
+    height: 200px;
+    margin: 10px;
+
+    padding:5px;
+    display: flex;
+}
+
+.img div{
+    margin: auto;
+}
+.img p{
+    color:gray;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+
+#form{
+    display: block;
+    float: left;
+}
