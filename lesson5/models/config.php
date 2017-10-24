@@ -10,42 +10,29 @@ define("ins","INSERT INTO ".gallery."(url,th_url,size,rating) VALUES(");
 $link = mysqli_connect('localhost','root','','shop');
 $sql_img=mysqli_query($link,"SELECT * from " . gallery);
 
-$q=4545;
-
-
-
 function img_resize($src, $dest, $rgb = 0xFFFFFF, $quality = 100) {
     if (!file_exists($src)) {
         return false;
     }
-
     $size = getimagesize($src);
-
     if ($size === false) {
         return false;
     }
-
     $format = strtolower(substr($size['mime'], strpos($size['mime'], '/') + 1));
     $icfunc = 'imagecreatefrom'.$format;
-
     if (!function_exists($icfunc)) {
         return false;
     }
-
     $new_width =200;
     $new_height = $size[1]/($size[0]/200);
-
     $isrc  = $icfunc($src);
     $idest = imagecreatetruecolor($new_width, $new_height);
-
     imagefill($idest, 0, 0, $rgb);
     imagecopyresampled($idest, $isrc, 0, 0, 0, 0, $new_width, $new_height, $size[0], $size[1]);
-
     $i = strrpos($dest,".");
     if (!$i) { return ""; }
     $l = strlen($dest) - $i;
     $ext = strtolower(substr($dest,$i+1,$l));
-
     switch ($ext) {
         case "jpeg":
         case "jpg":
@@ -58,10 +45,8 @@ function img_resize($src, $dest, $rgb = 0xFFFFFF, $quality = 100) {
             imagepng($idest,$dest,$quality);
             break;
     }
-
     imagedestroy($isrc);
     imagedestroy($idest);
-
     return true;
 }
 
