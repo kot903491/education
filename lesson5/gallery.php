@@ -19,7 +19,7 @@ if (!empty($_POST[load])) {
             $file_th = $path . "thumb/" . $fname;
             $size=$_FILES[images][size][$key];
             if ($size > 1000000) {
-                $msg .= "<p>" . $name . " Размер файла больше 1Мб</p>";
+                $msg .= "<p>" . $name . " Размер файла больше 1Мб. Файл не закружен</p>";
             } else {
                 if (copy($tmp_name, $file)) {
                     img_resize($file, $file_th);
@@ -55,7 +55,7 @@ else{
     <? while($img=mysqli_fetch_assoc($sql_img)){;?>
         <div class="img">
             <div>
-            <a href="/lesson5/photo.php?id=<?=$img[id];?>">
+            <a href="/lesson5/photo.php?id=<?=$img[id];?>&rat=1">
                 <img src="<?=$img[th_url];?>">
             </a>
             <p>Изображение просмотрели <?=$img[rating];?> раз</p>
