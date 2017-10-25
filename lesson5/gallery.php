@@ -7,19 +7,19 @@
  */
 include_once "models/config.php";
 session_start();
-if (!empty($_POST[load])) {
-    $_SESSION[x]=1;
+if (!empty($_POST['load'])) {
+    $_SESSION['x']=1;
     $path = "images/";
-    $f = $_FILES[images][tmp_name];
+    $f = $_FILES['images']['tmp_name'];
     if (!empty($f[0])) {
         $msg="";
         foreach ($f as $key =>$tmp_name) {
-            $fname=url2_ranslit($_FILES[images][name][$key]);
+            $fname=url2_ranslit($_FILES['images']['name'][$key]);
             $file = $path . $fname;
             $file_th = $path . "thumb/" . $fname;
-            $size=$_FILES[images][size][$key];
+            $size=$_FILES['images']['size'][$key];
             if ($size > 1000000) {
-                $msg .= "<p>" . $name . " Размер файла больше 1Мб. Файл не закружен</p>";
+                $msg .= "<p>" . $fname . " Размер файла больше 1Мб. Файл не закружен</p>";
             } else {
                 if (copy($tmp_name, $file)) {
                     img_resize($file, $file_th);
@@ -32,15 +32,15 @@ if (!empty($_POST[load])) {
     }
     else{$msg = "Файлы не указаны";}
     header("Location: ".$_SERVER["REQUEST_URI"]);
-    $_SESSION[msg]=$msg;
+    $_SESSION['msg']=$msg;
     exit;
 }
 else{
-    if($_SESSION[x]==1) {
-        $_SESSION[x]=0;
+    if($_SESSION['x']==1) {
+        $_SESSION['x']=0;
     }
     else{
-        $_SESSION[msg] = "";
+        $_SESSION['msg'] = "";
     }
 }
 ?>
@@ -55,10 +55,10 @@ else{
     <? while($img=mysqli_fetch_assoc($sql_img)){;?>
         <div class="img">
             <div>
-            <a href="/lesson5/photo.php?id=<?=$img[id];?>&rat=1">
-                <img src="<?=$img[th_url];?>">
+            <a href="/lesson5/photo.php?id=<?=$img['id'];?>&rat=1">
+                <img src="<?=$img['th_url'];?>">
             </a>
-            <p>Изображение просмотрели <?=$img[rating];?> раз</p>
+            <p>Изображение просмотрели <?=$img['rating'];?> раз</p>
             </div>
         </div>
 
@@ -68,7 +68,7 @@ else{
 </div>
 
 <div id="form">
-    <?=$_SESSION[msg];?>
+    <?=$_SESSION['msg'];?>
     <form enctype="multipart/form-data" method="post">
         <p>Загрузите новые фотографии!</p>
         <input type="file" name="images[]" accept="image/*" multiple>
