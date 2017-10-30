@@ -100,9 +100,12 @@ $b = <?=$b;?>
             <p><a href='lesson5/gallery.php'>read more</a></p>
         </div>
         <div class='col'>
-            <h3><a href='shop/index.php'>Магазин</a></h3>
+            <h3><a href='shop/index.php'>Шестое ДЗ Магазин</a></h3>
             <p>Доступно по ссылке</p>
             <p><a href='shop/index.php'>read more</a></p>
+            <h3><a href='lesson6.php'>Шестое ДЗ Калькулятор</a></h3>
+            <p>Доступно по ссылке</p>
+            <p><a href='lesson6.php'>read more</a></p>
         </div>
 
 		<div id='footer'>

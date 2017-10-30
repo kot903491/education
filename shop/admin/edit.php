@@ -24,12 +24,14 @@ if (isset($_GET['act'])) {
                 $obj->s_img = $ipath;
             };
         }
+        $str_desk=htmlspecialchars(strip_tags($_POST['desk']));
+        $str_desk=str_replace("\r\n","</p><p>",$str_desk);
         $obj->name = htmlspecialchars(strip_tags($_POST['name']));
         $obj->publisher = htmlspecialchars(strip_tags($_POST['publisher']));
         $obj->autor = htmlspecialchars(strip_tags($_POST['autor']));
         $obj->pages = htmlspecialchars(strip_tags($_POST['pages']));
         $obj->s_desk = htmlspecialchars(strip_tags($_POST['s_desk']));
-        $obj->desk = $_POST['desk'];
+        $obj->desk = "<p>$str_desk</p>";
         $obj->price = htmlspecialchars(strip_tags($_POST['price']));
         $msg=$obj->saveChanges($link, $id);
     }

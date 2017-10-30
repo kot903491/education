@@ -5,7 +5,8 @@
  * Date: 28.10.2017
  * Time: 16:05
  */
-
+ob_start("ob_gzhandler");
+date_default_timezone_set("Asia/Aqtobe");
 
 ?>
 <html>
